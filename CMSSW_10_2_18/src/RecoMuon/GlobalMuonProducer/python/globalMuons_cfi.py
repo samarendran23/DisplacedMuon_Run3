@@ -10,7 +10,11 @@ globalMuons = cms.EDProducer("GlobalMuonProducer",
         GlobalTrajectoryBuilderCommon
     ),
     TrackerCollectionLabel = cms.InputTag("generalTracks"),
-    MuonCollectionLabel = cms.InputTag("standAloneMuons","UpdatedAtVtx")
+    MuonCollectionLabel = cms.InputTag("standAloneMuons","UpdatedAtVtx"),
+
+    testCollectionLabel = cms.string('Tracks_glb')  ##samar
+
+	
 )
 
 globalMuons.GLBTrajBuilderParameters.GlobalMuonTrackMatcher.Propagator = cms.string('SmartPropagatorRK')
@@ -24,7 +28,10 @@ samarMuons = cms.EDProducer("GlobalMuonProducer",
         GlobalTrajectoryBuilderCommon
     ),
     TrackerCollectionLabel = cms.InputTag("generalTracks"),
-    MuonCollectionLabel = cms.InputTag("standAloneMuons","UpdatedAtVtx")
+    MuonCollectionLabel = cms.InputTag("standAloneMuons","UpdatedAtVtx"),
+
+    testCollectionLabel = cms.string('Tracks_samar')
+
 )
 
 samarMuons.GLBTrajBuilderParameters.GlobalMuonTrackMatcher.Propagator = cms.string('SmartPropagatorRK')
