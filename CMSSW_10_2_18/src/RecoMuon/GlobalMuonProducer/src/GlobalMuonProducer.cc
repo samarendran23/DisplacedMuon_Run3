@@ -48,6 +48,17 @@ GlobalMuonProducer::GlobalMuonProducer(const ParameterSet& parameterSet) {
   staAssoMapToken=consumes<TrajTrackAssociationCollection>(parameterSet.getParameter<InputTag>("MuonCollectionLabel").label()); 
   updatedStaAssoMapToken=consumes<reco::TrackToTrackMap>(parameterSet.getParameter<InputTag>("MuonCollectionLabel").label());
  
+  //testCollectionLabel_glb = parameterSet.getParameter<InputTag>("testCollectionLabelglb");  //samar
+  //testCollectionLabel_sam = parameterSet.getParameter<InputTag>("testCollectionLabelsam");
+
+  //testCollectionLabel_ = parameterSet.getParameter<InputTag>("testCollectionLabel");  //samar
+
+  testCollectionLabel_ = parameterSet.getParameter<std::string>("testCollectionLabel");  //samar
+  testToken=consumes<reco::TrackCollection>(parameterSet.getParameter<std::string>("testCollectionLabel"));
+
+  //cout << "string :"<< testCollectionLabel_ << endl; 
+
+  //LogTrace(string)<<endl;
 
 
   // service parameters
@@ -97,6 +108,10 @@ void GlobalMuonProducer::produce(Event& event, const EventSetup& eventSetup) {
   const string metname = "Muon|RecoMuon|GlobalMuonProducer";  
   LogTrace(metname)<<endl<<endl<<endl;
   LogTrace(metname)<<"Global Muon Reconstruction started"<<endl;  
+
+  //cout<< "string :" << string ;   //added samar
+ // LogTrace(string)<<endl<<endl<<endl;
+ cout << "string :"<< testCollectionLabel_ << endl; 
 
   // Update the services
   theService->update(eventSetup);
